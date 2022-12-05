@@ -1,0 +1,59 @@
+<app-spinner></app-spinner>
+<h1 class="title">Agregar una persona</h1>
+<div class="personForm-div">
+
+  <form class="form-group" [formGroup]="personForm" (ngSubmit)="submit()">
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Nombre y Apellido</mat-label>
+      <input type="text" matInput formControlName="name" placeholder="Nombre">
+      <mat-error *ngIf="personForm.get('name')?.hasError('required')">
+        Campo  obligatorio
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Telefono celular</mat-label>
+      <input type="text" matInput formControlName="phoneNumber" placeholder="Celular">
+      <mat-error *ngIf="personForm.get('phoneNumber')?.hasError('required')">
+        Campo obligatorio
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input type="text" matInput formControlName="email" placeholder="ejemplo@gmail.com">
+      <mat-error *ngIf="personForm.get('email')?.hasError('email') && !personForm.get('email')?.hasError('required')">
+        Email invalido
+      </mat-error>
+      <mat-error *ngIf="personForm.get('email')?.hasError('required')">
+        Campo requerido
+      </mat-error>
+    </mat-form-field>
+
+      <form formGroupName="address" >
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Ciudad</mat-label>
+          <input type="text" matInput formControlName="city" placeholder="Ciudad">
+          <mat-error *ngIf="personForm.get('address.city')?.hasError('required')">
+            Campo obligatorio
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Calle</mat-label>
+          <input type="text" matInput formControlName="street" placeholder="Nombre de la calle">
+          <mat-error *ngIf="personForm.get('address.street')?.hasError('required')">
+            Campo obligatorio
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Altura de la calle</mat-label>
+          <input type="text" matInput formControlName="number" placeholder="Altura">
+          <mat-error *ngIf="personForm.get('address.number')?.hasError('required')">
+            Campo obligatorio
+          </mat-error>
+        </mat-form-field>
+      </form>
+      <div class="btns">
+        <button mat-raised-button class="btn-sb"type="submit" color="primary">Agregar</button>
+        <button  [routerLink]="['']" class="btn-sb" mat-raised-button color="warn">Volver atras</button>
+      </div>
+  </form>
+</div>

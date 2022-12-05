@@ -1,0 +1,21 @@
+.form-group {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+
+}
+
+.full-width {
+  width: 100%;
+}
+.login-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+.btn-sb{
+  display: block;
+  margin: auto;
+  margin-top: 1rem;
+}

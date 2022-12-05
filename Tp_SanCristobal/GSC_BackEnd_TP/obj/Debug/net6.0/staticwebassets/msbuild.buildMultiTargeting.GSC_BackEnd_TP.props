@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\GSC_BackEnd_TP.props" />
+</Project>

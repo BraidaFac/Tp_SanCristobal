@@ -1,0 +1,48 @@
+<router-outlet></router-outlet>
+<div class="navBar">
+  <button mat-raised-button color="accent" [routerLink]="['./alta']">Agregar persona</button>
+  <button mat-raised-button color="warn" (click)="logOut()">Salir</button>
+</div>
+<mat-table [dataSource]="datasource" class="mat-elevation-z8"> -->
+   <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+    <mat-cell *matCellDef="let person"> {{person.id}} </mat-cell>
+  </ng-container>
+
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+    <mat-cell *matCellDef="let person"> {{person.name}} </mat-cell>
+  </ng-container>
+
+
+   <ng-container matColumnDef="phoneNumber">
+    <mat-header-cell *matHeaderCellDef> Numero de Telefono </mat-header-cell>
+    <mat-cell *matCellDef="let person"> {{person.phoneNumber}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+    <mat-cell *matCellDef="let person"> {{person.email}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="city">
+    <mat-header-cell *matHeaderCellDef> Ciudad </mat-header-cell>
+    <mat-cell *matCellDef="let person"> {{person.address.city}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="address">
+    <mat-header-cell *matHeaderCellDef> Direccion </mat-header-cell>
+    <mat-cell *matCellDef="let person"> {{person.address.street+" "+person.address.number}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="Actualizar">
+    <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+    <mat-cell *matCellDef="let person"> <button mat-raised-button color="accent" (click)="update(person.id);">Actualizar</button></mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="Eliminar">
+    <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+    <mat-cell *matCellDef="let person"> <button mat-raised-button color="accent" (click)="deletePerson(person.id)" >Eliminar</button></mat-cell>
+  </ng-container>
+
+   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+  <app-spinner [show]="show"></app-spinner>

@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Abel');
+
+
+#loader {
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+.one {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #2c3e50; /* f3f3f3 */
+  position: absolute;
+  border-radius: 50%;
+  border-right: 2px solid #9b59b6;
+  border-left: 2px solid #3498db;
+  -webkit-animation: spin-right 2s linear infinite;
+  animation: spin-right 2s linear infinite;
+}
+
+.two {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #2c3e50; /* f3f3f3 */
+  position: absolute;
+  border-radius: 50%;
+  margin: 10px;
+  border-bottom: 2px solid #e67e22;
+  border-top: 2px solid #f1c40f;
+  -webkit-animation: spin-left 1s linear infinite;
+  animation: spin-left 1s linear infinite;
+}
+
+.three {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #2c3e50; /* f3f3f3 */
+  position: absolute;
+  border-radius: 50%;
+  margin: 20px;
+  border-top: 2px solid #2ecc71;
+  -webkit-animation: spin-right 1s linear infinite;
+  animation: spin-right 1s linear infinite;
+}
+
+@keyframes spin-left {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+@keyframes spin-right {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+
+
+

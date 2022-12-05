@@ -1,0 +1,27 @@
+<app-spinner></app-spinner>
+<div class="login-div">
+  <form class="form-group" [formGroup]="loginForm" (ngSubmit)="submit()">
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+      <mat-error *ngIf="loginForm.get('email')?.hasError('email') && !loginForm.get('email')?.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+        Email is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Contrasena</mat-label>
+      <input type="password" matInput formControlName="password" placeholder="Cobtrasenia">
+      <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+        Password is required
+      </mat-error>
+    </mat-form-field>
+    <mat-error *ngIf="passOrEmailError">
+      Email or Password Incorrect
+    </mat-error>
+    <button mat-raised-button class="btn-sb"type="submit" color="primary">Ingresar</button>
+  </form>
+</div>

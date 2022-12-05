@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\GSC_BackEnd_TP.props" />
+</Project>
