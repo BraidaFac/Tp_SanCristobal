@@ -4,6 +4,7 @@ using GSC_BackEnd_TP.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GSC_BackEnd_TP.Migrations
 {
     [DbContext(typeof(ThingsContext))]
-    partial class ThingsContextModelSnapshot : ModelSnapshot
+    [Migration("20221206210518_loans-Update")]
+    partial class loansUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

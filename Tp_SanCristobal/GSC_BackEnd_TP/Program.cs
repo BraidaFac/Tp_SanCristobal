@@ -8,6 +8,7 @@ using System.Text;
 using GSC_BackEnd_TP.Configuration;
 using GSC_BackEnd_TP.Handler;
 using GSC_BackEnd_TP.Services;
+using GSC_BackEnd_TP.Protos;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +29,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IJwtHandler, JwtHandler>(); 
 builder.Services.AddSingleton<ILoginService, LoginService>();
+builder.Services.AddScoped<ILoanService, LoanService>();
 //Maper
 var mapperConfig = new MapperConfiguration(m =>
 {
@@ -58,9 +60,7 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = true
     };
 });
-
 builder.Services.AddAuthorization();
-
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ThingsContext>(options =>
 {
@@ -68,7 +68,10 @@ builder.Services.AddDbContext<ThingsContext>(options =>
     //Microsoft.EntityFrameworkCore.SqlServer
     options.UseSqlServer(builder.Configuration.GetConnectionString("ThingsContextConnection"));
 });
-   
+builder.Services.AddGrpc(opt => {
+    opt.EnableDetailedErrors = true; //Esto nos permite tener errores detallados
+});
+builder.Services.AddGrpcReflection();
 
 var app = builder.Build();
 
@@ -78,6 +81,10 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
+}
+else
+{
+    app.MapGrpcReflectionService();
 }
 
 app.UseHttpsRedirection();
@@ -91,5 +98,5 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Thing}/{action=Index}/{id?}");
-
+app.MapGrpcService<GrpcLoanService>();
 app.Run();

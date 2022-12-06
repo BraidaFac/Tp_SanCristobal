@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option csharp_namespace = "GSC_BackEnd_TP.Protos";
+
+import "google/protobuf/Timestamp.proto";
+import "google/protobuf/empty.proto";
+
+service ProtoLoanService{
+	rpc CreateLoan(NewLoan) returns (Response);
+	rpc CloseLoan(LoanToClose) returns (Response);
+	rpc GetPendingLoans(google.protobuf.Empty) returns (PendingLoans);
+}
+
+message PendingLoans{
+	repeated PendingLoan loans=1;
+}
+
+message NewLoan{
+	int32 personId=1;
+	int32 thingId=2;
+	google.protobuf.Timestamp agreeDate=3;
+}
+
+message LoanToClose{
+	int32 id=1;
+}
+
+message PendingLoan{
+	int32 id=1;
+	string personName=2;	
+	string personPhoneNumber=3;
+	string thingDesciption=4;
+	google.protobuf.Timestamp loanAgreeDate=5;
+}
+
+message Response{
+	string message=1;
+}
+

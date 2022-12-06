@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mariano\\OneDrive\\Escritorio\\Facu\\GSC_BackEnd_TP\\GSC_BackEnd_TP.csproj": {}
+    "C:\\Users\\Mariano\\OneDrive\\Escritorio\\Facu\\Tp_SanCristobal\\GSC_BackEnd_TP\\GSC_BackEnd_TP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mariano\\OneDrive\\Escritorio\\Facu\\GSC_BackEnd_TP\\GSC_BackEnd_TP.csproj": {
+    "C:\\Users\\Mariano\\OneDrive\\Escritorio\\Facu\\Tp_SanCristobal\\GSC_BackEnd_TP\\GSC_BackEnd_TP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mariano\\OneDrive\\Escritorio\\Facu\\GSC_BackEnd_TP\\GSC_BackEnd_TP.csproj",
+        "projectUniqueName": "C:\\Users\\Mariano\\OneDrive\\Escritorio\\Facu\\Tp_SanCristobal\\GSC_BackEnd_TP\\GSC_BackEnd_TP.csproj",
         "projectName": "GSC_BackEnd_TP",
-        "projectPath": "C:\\Users\\Mariano\\OneDrive\\Escritorio\\Facu\\GSC_BackEnd_TP\\GSC_BackEnd_TP.csproj",
+        "projectPath": "C:\\Users\\Mariano\\OneDrive\\Escritorio\\Facu\\Tp_SanCristobal\\GSC_BackEnd_TP\\GSC_BackEnd_TP.csproj",
         "packagesPath": "C:\\Users\\Mariano\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mariano\\OneDrive\\Escritorio\\Facu\\GSC_BackEnd_TP\\obj\\",
+        "outputPath": "C:\\Users\\Mariano\\OneDrive\\Escritorio\\Facu\\Tp_SanCristobal\\GSC_BackEnd_TP\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mariano\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -43,6 +43,14 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[12.0.0, )"
+            },
+            "Grpc.AspNetCore": {
+              "target": "Package",
+              "version": "[2.50.0, )"
+            },
+            "Grpc.AspNetCore.Server.Reflection": {
+              "target": "Package",
+              "version": "[2.50.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
